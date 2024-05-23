@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  catalog:
+    build:
+      context: ./catalog
+      dockerfile: src/main/docker/Dockerfile
+    container_name: my-catalog-container
+    ports:
+      - "7091:9091"
+
+  client:
+    build:
+      context: ./client
+      dockerfile: src/main/docker/Dockerfile
+    container_name: my-client-container
+    ports:
+      - "7092:9092"
+    depends_on:
+      - catalog
+    environment:
+      - CATALOG_HOST=catalog

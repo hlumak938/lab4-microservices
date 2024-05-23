@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-client-data
+      author: your_name
+      changes:
+        - insert:
+            tableName: CLIENT
+            columns:
+              - column:
+                  name: name
+                  value: "John Doe"
+              - column:
+                  name: email
+                  value: "john@example.com"
+
+        - insert:
+            tableName: CLIENT
+            columns:
+              - column:
+                  name: name
+                  value: "Jane Smith"
+              - column:
+                  name: email
+                  value: "jane@example.com"
